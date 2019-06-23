@@ -1,13 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Lista zgłoszeń</title>
+    <div th:replace="fragments/header :: headercss"></div>
 </head>
 <body>
 
+<br>
+<table border="1px">
+    <tr>
+        <th>Id</th>
+        <th>Telefon kontaktowy</th>
+        <th>Adres e-mail</th>
+        <th>Dzień przejazdu</th>
+        <th>Stacja początkowa podróży</th>
+        <th>Godzina odjazdu</th>
+        <th>Stacja przesiadkowa</th>
+        <th>Stacja końcowa podróży</th>
+        <th>Godzina przyjazdu</th>
+        <th>Liczba osób</th>
+        <th>Ograniczenie w poruszaniu się</th>
+        <th>Dodatkowe informacje</th>
+    </tr>
+    <tr th:each="ticket : ${ticketList}" th:id="*{'row_'+ticket.id}">
+        <td th:text="*{ticket.id}"></td>
+        <td th:text="*{ticket.stockAmount}"></td>
+        <td th:text="*{product.price}"></td>
+        <td th:text="*{product.type}"></td>
+        <td>
+            <button type="button" th:onclick="'javascript:deleteProduct('+${product.id}+');'">x</button>
+            <!--            <button type="button" th:onclick="'javascript:deleteRow('+this+');'">x</button>-->
+        </td>
+    </tr>
 
+</table>
+<script type="text/javascript"> //tutaj trafią funkcje JSowe
+function deleteProduct(id) {
+    $.ajax({ //$ - jquery(biblioteka JS)
+        url: '/admin/product/' + id + '/delete',
+        type: 'POST',
+        success: function (response) {
+            console.log("Pykło")
+            $('#row_' + id).remove();
+        }
+    });
 
+}
 
+function deleteRow(btn) {
+    console.log("asdasdasd")
+    var row = btn.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+}
+
+</script>
 </body>
 </html>
