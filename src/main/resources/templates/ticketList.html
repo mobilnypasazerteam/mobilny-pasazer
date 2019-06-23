@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista zgłoszeń</title>
+</head>
+<body>
+
+<h1>Lista zgłoszeń</h1>
+<br>
+<table border="1px">
+    <tr>
+        <th>Id</th>
+        <th>Telefon kontaktowy</th>
+        <th>Adres e-mail</th>
+        <th>Dzień przejazdu</th>
+        <th>Stacja początkowa podróży</th>
+        <th>Godzina odjazdu</th>
+        <th>Stacja przesiadkowa</th>
+        <th>Stacja końcowa podróży</th>
+        <th>Godzina przyjazdu</th>
+        <th>Liczba osób</th>
+        <th>Ograniczenie w poruszaniu się</th>
+        <th>Dodatkowe informacje</th>
+    </tr>
+   <tr th:each="ticket : ${ticketList}" >
+        <td th:text="*{ticket.phone}"></td>
+        <td th:text="*{ticket.email}"></td>
+        <td th:text="*{ticket.travel_date}"></td>
+        <td th:text="*{ticket.start_point}"></td>
+        <td th:text="*{ticket.start_time}"></td>
+        <td th:text="*{ticket.intermediate_point}"></td>
+        <td th:text="*{ticket.end_point}"></td>
+        <td th:text="*{ticket.end_time}"></td>
+        <td th:text="*{ticket.passenger_no}"></td>
+        <td th:text="*{ticket.reduced_mobility_type}"></td>
+        <td th:text="*{ticket.additional_info}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>
