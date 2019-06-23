@@ -13,6 +13,6 @@ class HomeController {
     @GetMapping("/")
     String index(Model model) {
         model.addAttribute("now", LocalDateTime.now());
-        return "userindex";
+        return "userIndex";
     }
 }
