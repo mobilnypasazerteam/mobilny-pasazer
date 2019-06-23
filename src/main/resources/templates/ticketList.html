@@ -23,8 +23,7 @@
         <th>Ograniczenie w poruszaniu się</th>
         <th>Dodatkowe informacje</th>
     </tr>
-    <tr th:each="ticket : ${ticketList}" th:id="*{'row_'+ticket.id}">
-        <td th:text="*{ticket.id}"></td>
+   <tr th:each="ticket : ${ticketList}" >
         <td th:text="*{ticket.phone}"></td>
         <td th:text="*{ticket.email}"></td>
         <td th:text="*{ticket.travel_date}"></td>

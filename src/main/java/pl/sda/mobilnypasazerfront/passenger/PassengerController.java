@@ -29,8 +29,7 @@ public class PassengerController {
     public String saveTicket(@ModelAttribute(name = "ticket") PassengerTicket ticket, Model model){
 
         passengerService.save(ticket);
-        passengerService.getTicketList();
-
+        model.addAttribute( "ticketList", passengerService.getTicketList() );
         return "ticketList";
     }
 

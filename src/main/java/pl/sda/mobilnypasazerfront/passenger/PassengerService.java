@@ -20,6 +20,7 @@ public class PassengerService {
     }
 
     public void save(PassengerTicket ticket) {
+        TICKETS.add( ticket );
       }
 
     List<PassengerTicket> getTicketList () {
