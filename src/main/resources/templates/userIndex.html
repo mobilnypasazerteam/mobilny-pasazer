@@ -2,15 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/user.css">
+    <div th:replace="fragments/header :: userheadercss"></div>
     <title>UserPanel</title>
 </head>
 <body>
-    <div class="topnav">
-        <h1>Panel Użytkownika</h1>
-        <a href="/new-form">Formularz zgłoszenia przejazdu</a>
-        <a href="/">Historia zgłoszeń</a>
-        <a href="/">Wyloguj</a>
-    </div>
+<div th:replace="fragments/header :: userheader-fragment"></div>
+    Strona startowa pasażera
 </body>
 </html>
