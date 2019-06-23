@@ -2,11 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/user.css">
     <title>UserPanel</title>
 </head>
 <body>
-    <h1>Panel Użytkownika</h1>
-    <button type="button" name="ticket">Ticket</button>
-    <button type="button" name="showTicketHistory">Ticket history</button>
+    <div class="topnav">
+        <h1>Panel Użytkownika</h1>
+        <a href="/new-form">Formularz zgłoszenia przejazdu</a>
+        <a href="/">Historia zgłoszeń</a>
+        <a href="/">Wyloguj</a>
+    </div>
 </body>
 </html>
