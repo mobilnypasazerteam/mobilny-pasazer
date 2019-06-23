@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PassengerController {
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/users/index")
     public String showUserIndex(Model model) {
         return "userIndex";
     }

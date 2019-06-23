@@ -9,5 +9,4 @@ public class MobilnyPasazerFrontApplication {
     public static void main(String[] args) {
         SpringApplication.run( MobilnyPasazerFrontApplication.class, args );
     }
-
 }
