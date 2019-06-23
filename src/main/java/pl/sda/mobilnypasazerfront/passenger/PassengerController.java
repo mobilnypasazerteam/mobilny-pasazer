@@ -34,4 +34,9 @@ public class PassengerController {
 
         return "index";
     }
+
+    @GetMapping(value = "/users/index")
+    public String showUserIndex() {
+        return "userIndex";
+    }
 }
