@@ -1,9 +1,16 @@
-h1{
-    color:#0000FF;
+h1 {
+    color: #111111;
+    font-size: 30px;
 }
 
-h2{
-    color:#FF0000;
+h2 {
+    color: #111111;
+    font-size: 20px;
+}
+
+p {
+    color: #111111;
+    font-size: 14px;
 }
 
 footer{
@@ -12,6 +19,7 @@ footer{
 
 body {
     font-family: "Lato", sans-serif;
+    background-color: #c9c9c9;
 }
 
 .error{
@@ -81,7 +89,7 @@ body {
 
 /* Add a color to the active/current link */
 .topnav a.active {
-    background-color: #4CAF50;
-    color: white;
+    border: 1px solid brown;;
+    color: black;
 }
 
