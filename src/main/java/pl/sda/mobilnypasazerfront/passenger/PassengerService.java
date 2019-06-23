@@ -8,12 +8,12 @@ import java.util.List;
 @Service
 public class PassengerService {
 
-    private static List<PassengerTicket> TICKETS;
+    private List<PassengerTicket> TICKETS;
 
-    static {
-        //TICKETS.add(  )
-
-    }
+//    static {
+//        //TICKETS.add(  )
+//
+//    }
 
     public PassengerService() {
         this.TICKETS = new ArrayList<>();
@@ -21,4 +21,12 @@ public class PassengerService {
 
     public void save(PassengerTicket ticket) {
       }
+
+    List<PassengerTicket> getTicketList () {
+        return TICKETS;
+      }
+
+
+
+
 }

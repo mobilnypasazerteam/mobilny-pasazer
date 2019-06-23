@@ -2,6 +2,7 @@ package pl.sda.mobilnypasazerfront.passenger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,19 +20,23 @@ public class PassengerController {
     }
 
     @GetMapping("/new-form")
-    String passengerForm (Model model) {
+    String registerTicket (Model model) {
         model.addAttribute( "ticket", new PassengerTicket() );
         return "passengerForm";
     }
 
-
     @PostMapping(value="/new-ticket")
-    public String newTicket(@ModelAttribute(name = "ticket") PassengerTicket ticket,
-                           BindingResult result, Model model){
+    public String saveTicket(@ModelAttribute(name = "ticket") PassengerTicket ticket, Model model){
 
-        System.out.println("New ticket : " + ticket.toString() );
         passengerService.save(ticket);
+        passengerService.getTicketList();
 
-        return "index";
+        return "ticketList";
     }
+
+
+
+
+
+
 }
