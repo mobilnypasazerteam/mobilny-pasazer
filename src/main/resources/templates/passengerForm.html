@@ -2,6 +2,7 @@
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <div th:replace="fragments/header :: userheadercss"></div>
 </head>
 <style>
     input[type=text], select {
@@ -29,19 +30,12 @@
         background-color: #45a049;
     }
 
-    div {
-        border-radius: 5px;
-        background-color: #f2f2f2;
-        padding: 20px;
-    }
 </style>
 <body>
+<div th:replace="fragments/header :: userheader-fragment"></div>
 
-<h2>Formularz zgłoszenia przejazdu</h2>
-
-
-
-<div>
+<div style="border-radius: 5px; background-color: #f2f2f2; padding: 20px">
+    <h2>Formularz zgłoszenia przejazdu</h2>
     <form method="post" action="/new-ticket" th:object="${ticket}">
 
         <h3>Informacje kontaktowe:</h3>
