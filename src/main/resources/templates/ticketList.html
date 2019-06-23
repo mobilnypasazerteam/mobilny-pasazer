@@ -2,11 +2,30 @@
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <div th:replace="fragments/header :: userheadercss"></div>
     <title>Lista zgłoszeń</title>
 </head>
-<body>
+<style>
+    table {
+        width: 100%;
+        background-color: white;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+    }
 
-<h1>Lista zgłoszeń</h1>
+    th {
+        height: 50px;
+        font-size: smaller;
+        text-align: center;
+    }
+</style>
+
+<body>
+<div th:replace="fragments/header :: userheader-fragment"></div>
+
+<div>
+<h2>Lista zgłoszeń</h2>
 <br>
 <table border="1px">
     <tr>
@@ -37,6 +56,6 @@
     </tr>
 
 </table>
-
+</div>
 </body>
 </html>
