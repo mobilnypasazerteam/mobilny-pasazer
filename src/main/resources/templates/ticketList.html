@@ -29,7 +29,6 @@
 <br>
 <table border="1px">
     <tr>
-        <th>Id</th>
         <th>Telefon kontaktowy</th>
         <th>Adres e-mail</th>
         <th>Dzień przejazdu</th>
@@ -43,7 +42,6 @@
         <th>Dodatkowe informacje</th>
     </tr>
    <tr th:each="ticket : ${ticketList}" >
-       <td th:text="*{ticket.id}"></td>
        <td th:text="*{ticket.phone}"></td>
         <td th:text="*{ticket.email}"></td>
         <td th:text="*{ticket.travel_date}"></td>
