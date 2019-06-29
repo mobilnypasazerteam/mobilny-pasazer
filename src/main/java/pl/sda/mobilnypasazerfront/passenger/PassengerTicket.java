@@ -3,8 +3,7 @@ package pl.sda.mobilnypasazerfront.passenger;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
-import javax.validation.constraints.Email;
+import org.hibernate.validator.constraints.Email;
 import javax.validation.constraints.Size;
 
 @Getter

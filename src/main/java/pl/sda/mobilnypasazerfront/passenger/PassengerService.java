@@ -21,13 +21,10 @@ public class PassengerService {
 
     public void save(PassengerTicket ticket) {
         TICKETS.add( ticket );
-      }
+    }
 
-    List<PassengerTicket> getTicketList () {
+    List<PassengerTicket> getTicketList() {
         return TICKETS;
-      }
-
-
-
+    }
 
 }
