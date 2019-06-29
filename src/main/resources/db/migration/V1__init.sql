@@ -43,3 +43,8 @@ create table if not exists passengers_roles
 alter table passengers_roles owner to yjtcnehnbqfhdo
 ;
 
+create sequence hibernate_sequence
+;
+
+alter sequence hibernate_sequence owner to yjtcnehnbqfhdo
+;
