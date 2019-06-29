@@ -14,7 +14,7 @@ class HomeController {
     @GetMapping("/")
     String index(Model model) {
         model.addAttribute("now", LocalDateTime.now());
-        return "index";
+        return "home2";
     }
     @RequestMapping("/login")
     public String showLoginPage(){

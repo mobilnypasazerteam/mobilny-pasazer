@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <div th:replace="fragments/header :: userheadercss"></div>
+    <title>Lista zgłoszeń</title>
+</head>
+<style>
+    table {
+        width: 100%;
+        background-color: white;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+    }
+
+    th {
+        height: 50px;
+        font-size: smaller;
+        text-align: center;
+    }
+</style>
+
+<body>
+<div th:replace="fragments/header :: userheader-fragment"></div>
+
+<div>
+<h2>Lista zgłoszeń</h2>
+<br>
+<table border="1px">
+    <tr>
+        <th>Id</th>
+        <th>Telefon kontaktowy</th>
+        <th>Adres e-mail</th>
+        <th>Dzień przejazdu</th>
+        <th>Stacja początkowa podróży</th>
+        <th>Godzina odjazdu</th>
+        <th>Stacja przesiadkowa</th>
+        <th>Stacja końcowa podróży</th>
+        <th>Godzina przyjazdu</th>
+        <th>Liczba osób</th>
+        <th>Ograniczenie w poruszaniu się</th>
+        <th>Dodatkowe informacje</th>
+    </tr>
+   <tr th:each="ticket : ${ticketList}" >
+       <td th:text="*{ticket.id}"></td>
+       <td th:text="*{ticket.phone}"></td>
+        <td th:text="*{ticket.email}"></td>
+        <td th:text="*{ticket.travel_date}"></td>
+        <td th:text="*{ticket.start_point}"></td>
+        <td th:text="*{ticket.start_time}"></td>
+        <td th:text="*{ticket.intermediate_point}"></td>
+        <td th:text="*{ticket.end_point}"></td>
+        <td th:text="*{ticket.end_time}"></td>
+        <td th:text="*{ticket.passenger_no}"></td>
+        <td th:text="*{ticket.reduced_mobility_type}"></td>
+        <td th:text="*{ticket.additional_info}"></td>
+    </tr>
+
+</table>
+</div>
+</body>
+</html>
