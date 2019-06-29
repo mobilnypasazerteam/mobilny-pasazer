@@ -2,8 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+    <div th:replace="fragments/header :: userheadercss"></div>
 </head>
 <body>
+<div th:replace="fragments/header :: header-fragment"></div>
     <h1>Mobilny pasażer</h1>
 
     <a href="/users/index">Zaloguj pasażera</a>
