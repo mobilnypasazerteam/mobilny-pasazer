@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
+
 @Controller
 public class PassengerController {
 
@@ -31,6 +33,28 @@ public class PassengerController {
         passengerService.save(ticket);
         model.addAttribute( "ticketList", passengerService.getTicketList() );
         return "ticketList";
+
+        return "index";
+
+    }
+
+    @GetMapping("/get-list")
+    String lista (Model model) {
+       model.addAttribute( "ticket", new PassengerTicket() );
+
+        //get data mock
+        ArrayList listaDowyswieltnia =  new ArrayList<PassengerTicket>(); //PassangerService.PassengerService();
+
+        //sample data
+        PassengerTicket P1 =new PassengerTicket();
+        P1.setEmail("aaa@a.pl");
+        listaDowyswieltnia.add(P1);
+        PassengerTicket P2 =new PassengerTicket();
+        P1.setEmail("bbbb@a.pl");
+        listaDowyswieltnia.add(P2);
+
+        model.addAttribute( "lista", listaDowyswieltnia );
+        return "orderList";
     }
 
 
