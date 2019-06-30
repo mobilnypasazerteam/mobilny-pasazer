@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<div class="w3-main" style="margin-left:300px">-->
+
+    <!--&lt;!&ndash; Header &ndash;&gt;-->
+    <!--<header th:replace="fragments/header.html :: menuHeader" />-->
+    <!--&lt;!&ndash; End page content &ndash;&gt;-->
+
+<!--</div>-->
+
+
+<!--<block id="mySidebar" class="alt" th:include="fragments/sidebar.html :: mySidebar" />-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="general.css">
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+<block id="mySidebar" class="alt" th:include="fragments/sidebar.html :: mySidebar" />
 
 <head>
+
     <meta charset="UTF-8">
     <title>Lista zgłoszeń</title>
 </head>
-<body>
+
+
+
 <style>
     input[type=text], select {
         width: 100%;
@@ -42,6 +62,7 @@
 
 
 <p><b>Iterated List:</b><p>
+
 <table>
     <th:block th:each="item : ${lista}">
         <tr>

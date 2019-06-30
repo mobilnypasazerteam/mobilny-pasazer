@@ -34,7 +34,7 @@ public class PassengerController {
         model.addAttribute( "ticketList", passengerService.getTicketList() );
         return "ticketList";
 
-        return "index";
+        //return "index";
 
     }
 
