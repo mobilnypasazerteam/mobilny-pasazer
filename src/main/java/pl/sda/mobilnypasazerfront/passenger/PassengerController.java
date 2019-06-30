@@ -24,10 +24,10 @@ public class PassengerController {
     }
 
     @PostMapping(value="/new-ticket")
-    public String saveTicket(@ModelAttribute(name = "ticket") PassengerTicket ticket, Model model){
+    public String saveTicket(@ModelAttribute(name = "ticket") PassengerTicketDTO ticket, Model model){
 
-        passengerService.save(ticket);
-        model.addAttribute( "ticketList", passengerService.getTicketList() );
+        passengerService.registerTicket(ticket);
+        model.addAttribute( "ticketList", passengerService.getTicketList());
         return "ticketList";
     }
 
