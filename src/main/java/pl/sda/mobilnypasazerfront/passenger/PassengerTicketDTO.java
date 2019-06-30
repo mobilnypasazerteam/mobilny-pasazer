@@ -1,7 +1,6 @@
 package pl.sda.mobilnypasazerfront.passenger;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +11,9 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class PassengerTicketDTO {
 
     @Id
@@ -36,7 +38,6 @@ public class PassengerTicketDTO {
     @NotNull(message = "Pole nie może być puste")
     private Integer passenger_no;
     private String reduced_mobility_type;
-    @Size(min=3, max=50, message = "maksymalnie 50 znaków")
     private String additional_info;
 
 }

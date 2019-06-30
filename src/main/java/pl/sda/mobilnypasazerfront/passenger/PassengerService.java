@@ -40,13 +40,31 @@ public class PassengerService {
 
     }
 
-    public List<PassengerTicket> getTicketList() {
+    public List<PassengerTicketDTO> getTicketList() {
 
         List<PassengerTicket> all = ticketRepository.findAll();
 
-        List<PassengerTicketDTO> collect = all.stream().map( t -> t.toDto() ).collect( Collectors.toList() );
-
-
-        return null;
+        return entityToDTO( all );
     }
+
+    private List<PassengerTicketDTO> entityToDTO (List<PassengerTicket> passengerTickets) {
+        List<PassengerTicketDTO> passengerTicketDTO = new ArrayList<>(  );
+        for (PassengerTicket ticket : passengerTickets) {
+            passengerTicketDTO.add(PassengerTicketDTO.builder()
+                    .phone( ticket.getPhone() )
+                    .email( ticket.getEmail() )
+                    .travel_date( ticket.getTravel_date() )
+                    .start_point( ticket.getStart_point() )
+                    .start_time( ticket.getStart_time() )
+                    .intermediate_point( ticket.getIntermediate_point() )
+                    .end_point( ticket.getEnd_point() )
+                    .end_time( ticket.getEnd_time() )
+                    .passenger_no( ticket.getPassenger_no() )
+                    .reduced_mobility_type( ticket.getReduced_mobility_type() )
+                    .additional_info( ticket.getAdditional_info() )
+                    .build());
+        }
+        return passengerTicketDTO;
+    }
+
 }
