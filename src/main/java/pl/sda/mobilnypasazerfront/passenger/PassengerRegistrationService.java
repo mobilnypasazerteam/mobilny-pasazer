@@ -1,10 +1,15 @@
 package pl.sda.mobilnypasazerfront.passenger;
 
-import com.google.common.collect.Sets;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.sda.mobilnypasazerfront.roles.Role;
 import pl.sda.mobilnypasazerfront.roles.RoleRepository;
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 public class PassengerRegistrationService {
@@ -29,15 +34,16 @@ public class PassengerRegistrationService {
     }
 
     private Passenger dtoToEntity(PassengerRegistrationDTO dto) {
-
+        Role userRole = roleRepository.findByRoleName("ROLE_USER");
+        Set<Role> supportedRoles = new HashSet<>();
+        supportedRoles.add(userRole);
         return Passenger.builder()
                 .firstName(dto.getFirstName())
                 .lastName(dto.getLastName())
                 .sex(dto.getSex())
                 .username(dto.getUsername())
                 .phone(dto.getPhone())
-                .roles(Sets.newHashSet(
-                        roleRepository.findByRoleName("ROLE_USER")))
+                .roles(supportedRoles)
                 .passwordHash(encoder.encode(dto.getPassword()))
                 .build();
 
