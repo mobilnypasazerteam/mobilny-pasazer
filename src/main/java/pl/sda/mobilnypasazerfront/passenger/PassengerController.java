@@ -13,48 +13,15 @@ import java.util.ArrayList;
 @Controller
 public class PassengerController {
 
-    private final PassengerService passengerService;
-
-    @Autowired
-    public PassengerController(PassengerService passengerService) {
-        this.passengerService = passengerService;
-    }
-
     @Autowired
     private PassengerRegistrationService passengerRegistrationService;
 
-    @GetMapping("/new-form")
-    String registerTicket (Model model) {
-        model.addAttribute( "ticket", new PassengerTicket() );
-        return "passengerForm";
-    }
+    @Autowired
+    private PassengerService passengerService;
 
-    @PostMapping(value="/new-ticket")
-    public String saveTicket(@ModelAttribute(name = "ticket") PassengerTicketDTO ticket, Model model){
 
-        passengerService.registerTicket(ticket);
-        model.addAttribute( "ticketList", passengerService.getTicketList());
-        return "ticketList";
-    }
 
-    @GetMapping("/get-list")
-    String lista (Model model) {
-       model.addAttribute( "ticket", new PassengerTicket() );
 
-        //get data mock
-        ArrayList listaDowyswieltnia =  new ArrayList<PassengerTicket>(); //PassangerService.PassengerService();
-
-        //sample data
-        PassengerTicket P1 =new PassengerTicket();
-        P1.setEmail("aaa@a.pl");
-        listaDowyswieltnia.add(P1);
-        PassengerTicket P2 =new PassengerTicket();
-        P1.setEmail("bbbb@a.pl");
-        listaDowyswieltnia.add(P2);
-
-        model.addAttribute( "lista", listaDowyswieltnia );
-        return "orderList";
-    }
     @GetMapping(value = "/users/index")
     public String showUserIndex() {
         return "userIndex";
@@ -78,4 +45,30 @@ public class PassengerController {
         passengerRegistrationService.registerUser(passengerDto);
         return "index";
     }
+
+    @GetMapping(value = "/new-form")
+    public String showTicketForm(Model model){
+        PassengerTicketDTO passengerTicketDTO = new PassengerTicketDTO();
+        model.addAttribute("passengerTicketDTO", passengerTicketDTO);
+     //   model.addAttribute("sex", Sex.values());
+        return "passengerForm";
+    }
+
+    @PostMapping(value="/new-ticket")
+    public String saveTicket (@ModelAttribute(name = "passengerTicketDTO") @Valid PassengerTicketDTO passengerTicketDTO,
+                           BindingResult result, Model model){
+        if(result.hasErrors()){
+            model.addAttribute("passengerTicketDTO", passengerTicketDTO);
+            return "passengerForm";
+        }
+        passengerService.registerTicket(passengerTicketDTO);
+        return "ticketList";
+    }
+
+    @GetMapping("/tickets")
+    public String lista (Model model) {
+        model.addAttribute( "ticketList", passengerService.getTicketList() );
+        return "ticketList";
+    }
+
 }

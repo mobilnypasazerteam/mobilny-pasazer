@@ -2,7 +2,7 @@
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <div th:replace="fragments/header :: userheadercss"></div>
+    <!--<div th:replace="fragments/header :: userheadercss"></div>-->
     <title>Lista zgłoszeń</title>
 </head>
 <style>
@@ -22,40 +22,47 @@
 </style>
 
 <body>
-<div th:replace="fragments/header :: userheader-fragment"></div>
+<!--<div th:replace="fragments/header :: userheader-fragment"></div>-->
 
 <div>
 <h2>Lista zgłoszeń</h2>
 <br>
-<table border="1px">
-    <tr>
-        <th>Telefon kontaktowy</th>
-        <th>Adres e-mail</th>
-        <th>Dzień przejazdu</th>
-        <th>Stacja początkowa podróży</th>
-        <th>Godzina odjazdu</th>
-        <th>Stacja przesiadkowa</th>
-        <th>Stacja końcowa podróży</th>
-        <th>Godzina przyjazdu</th>
-        <th>Liczba osób</th>
-        <th>Ograniczenie w poruszaniu się</th>
-        <th>Dodatkowe informacje</th>
-    </tr>
-   <tr th:each="ticket : ${ticketList}" >
-       <td th:text="*{ticket.phone}"></td>
-        <td th:text="*{ticket.email}"></td>
-        <td th:text="*{ticket.travel_date}"></td>
-        <td th:text="*{ticket.start_point}"></td>
-        <td th:text="*{ticket.start_time}"></td>
-        <td th:text="*{ticket.intermediate_point}"></td>
-        <td th:text="*{ticket.end_point}"></td>
-        <td th:text="*{ticket.end_time}"></td>
-        <td th:text="*{ticket.passenger_no}"></td>
-        <td th:text="*{ticket.reduced_mobility_type}"></td>
-        <td th:text="*{ticket.additional_info}"></td>
-    </tr>
+    <table border="1px">
+        <tr>
+            <th>Telefon kontaktowy</th>
+            <th>Adres e-mail</th>
+            <th>Dzień przejazdu</th>
+            <th>Stacja początkowa podróży</th>
+            <th>Godzina odjazdu</th>
+            <th>Stacja przesiadkowa</th>
+            <th>Stacja końcowa podróży</th>
+            <th>Godzina przyjazdu</th>
+            <th>Liczba osób</th>
+            <th>Ograniczenie w poruszaniu się</th>
+            <th>Dodatkowe informacje</th>
+        </tr>
+        <tr th:each="ticket : ${passengerTicketDTO}" ></tr>
+            <!--th:id="*{'row_'+ticket.id}"> &lt;!&ndash;dynamiczne nadawanie id &ndash;&gt;-->
+            <!--<td>-->
+                <!--&lt;!&ndash;            <a th:href="@{/admin/product/}+*{product.id}">&ndash;&gt;-->
+                <!--<a th:href="@{/admin/product/{id}(id=${product.id})}">-->
+                    <!--&lt;!&ndash;@ pozwala na zachowanie kontekstu aplikacji + powinnismy jej uzywac przy adresach&ndash;&gt;-->
+                    <!--<span th:text="*{product.productName}"></span>-->
+                <!--</a>-->
+            <td th:text="*{passengerTicketDTO.phone}"></td>
+            <td th:text="*{passengerTicketDTO.email}"></td>
+            <td th:text="*{passengerTicketDTO.travel_date}"></td>
+            <td th:text="*{passengerTicketDTO.start_point}"></td>
+            <td th:text="*{passengerTicketDTO.start_time}"></td>
+            <td th:text="*{passengerTicketDTO.intermediate_point}"></td>
+            <td th:text="*{passengerTicketDTO.end_point}"></td>
+            <td th:text="*{passengerTicketDTO.end_time}"></td>
+            <td th:text="*{passengerTicketDTO.passenger_no}"></td>
+            <td th:text="*{passengerTicketDTO.reduced_mobility_type}"></td>
+            <td th:text="*{passengerTicketDTO.additional_info}"></td>
+        </tr>
 
-</table>
-</div>
+    </table>
+    </div>
 </body>
 </html>
