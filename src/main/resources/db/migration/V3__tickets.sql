@@ -17,5 +17,3 @@ create table if not exists tickets
 )
 ;
 
-alter table tickets owner to ltkslncdgrzizt
-;

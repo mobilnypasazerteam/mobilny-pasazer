@@ -29,6 +29,7 @@ public class PassengerController {
         return "passengerForm";
     }
 
+
     @PostMapping(value="/new-ticket")
     public String saveTicket(@ModelAttribute(name = "ticket") PassengerTicketDTO ticket, Model model){
 
@@ -53,7 +54,7 @@ public class PassengerController {
         listaDowyswieltnia.add(P2);
 
         model.addAttribute( "lista", listaDowyswieltnia );
-        return "orderList";
+        return "orderList2";
     }
     @GetMapping(value = "/users/index")
     public String showUserIndex() {
