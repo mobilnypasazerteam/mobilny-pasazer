@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("loginPassword")
                 .loginProcessingUrl("/processLogin")
                 .failureUrl("/login?error=1")
-                .defaultSuccessUrl("/users/index");
+                .defaultSuccessUrl("/");
     }
 
     @Override

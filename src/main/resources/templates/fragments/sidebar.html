@@ -1,0 +1,26 @@
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+
+<block th:fragment="mySidebar">
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+        <div class="w3-container">
+            <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey"
+               title="close menu">
+                <i class="fa fa-remove"></i>
+            </a>
+            <center><img src="https://lka.lodzkie.pl/_gfx/logo_lmenu_lka.png" style="width:45%;"
+                         class="w3-round"><br><br></center>
+            <h4><b>Mobilny pasażer</b></h4>
+        </div>
+        <div class="w3-bar-block">
+            <a class="w3-bar-item w3-button w3-padding w3-text-teal">Strona startowa</a>
+
+            <a th:if="!${@passengerContext.isLoggedIn()}" class="w3-bar-item w3-button w3-padding w3-text-teal" href="/register">Rejestracja</a>
+            <a th:if="!${@passengerContext.isLoggedIn()}" class="w3-bar-item w3-button w3-padding w3-text-teal" href="/login">Logowanie</a>
+            <a th:if="${@passengerContext.isLoggedIn()}" class="w3-bar-item w3-button w3-padding w3-text-teal" >Punktualność pociągów</a>
+            <a th:if="${@passengerContext.isLoggedIn()}" class="w3-bar-item w3-button w3-padding w3-text-teal" href="/new-form">Zgłoś przejazd</a>
+            <a th:if="${@passengerContext.isLoggedIn()}" class="w3-bar-item w3-button w3-padding w3-text-teal" >Dostępność stacji/przystanku</a>
+            <a th:if="${@passengerContext.isLoggedIn()}" class="w3-bar-item w3-button w3-padding w3-text-teal" >Masz uwagi?</a>
+            <a th:if="!${@passengerContext.isLoggedIn()}" class="w3-bar-item w3-button w3-padding w3-text-teal" >Kontakt</a>
+        </div>
+    </nav>
+</block>

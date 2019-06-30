@@ -3,43 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
-    <div th:replace="fragments/header :: userheadercss"></div>
+    <div th:replace="fragments/header :: headerCss"></div>
 </head>
 <body>
-<div th:replace="fragments/header :: header-fragment"></div>
-<div class="form-style" style="border-radius: 5px; background-color: #f2f2f2; padding: 20px">
-    <h2>Formularz rejestracji pasażera</h2>
-    <form method="post" action="/register" th:object="${passengerDto}">
+<block id="mySidebar" class="alt" th:include="fragments/sidebar.html :: mySidebar" />
 
-        <p><label for="firstName">Imię</label><br>
-        <input type="text" id="firstName" placeholder="Podaj swoje imię" th:field="*{firstName}">
-        <span class="error-style" th:errors="*{firstName}"></span> <br>
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity"  style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-        <p><label for="lastName">Nazwisko</label><br>
-        <input type="text"id="lastName" placeholder="Podaj swoje nazwisko" th:field="*{lastName}">
-        <span class="error-style" th:errors="*{lastName}"></span> <br>
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
 
-        <p><label for="sex">Płeć</label><br>
-        <select id="sex" th:field="*{sex}">
-            <option value="" th:text="wybierz"></option>
-            <option th:each="s : ${sex}" th:value="${s}"
-                    th:text="${s.plName}"></option>
-        </select>
-        <span class="error-style" th:errors="*{sex}"></span> <br>
+    <!-- Header -->
+    <header th:replace="fragments/header.html :: menuHeader" />
+    <!-- End page content -->
+    <div class="form-style" style="border-radius: 5px; background-color: #f2f2f2; padding: 20px">
+        <h2>Formularz rejestracji pasażera</h2>
+        <form method="post" action="/register" th:object="${passengerDto}">
 
-        <p><label for="email">Adres e-mail</label><br>
-        <input type="text" id="email" placeholder="Podaj swój adres email" th:field="*{username}">
-        <span class="error-style" th:errors="*{username}"></span> <br>
+            <p><label for="firstName">Imię</label><br>
+                <input type="text" id="firstName" placeholder="Podaj swoje imię" th:field="*{firstName}">
+                <span class="error-style" th:errors="*{firstName}"></span> <br>
 
-        <p><label for="password">Hasło</label><br>
-        <input type="text" id="password" placeholder="Podaj hasło" th:field="*{password}">
-        <span class="error-style" th:errors="*{password}"></span> <br>
+            <p><label for="lastName">Nazwisko</label><br>
+                <input type="text"id="lastName" placeholder="Podaj swoje nazwisko" th:field="*{lastName}">
+                <span class="error-style" th:errors="*{lastName}"></span> <br>
 
-        <p><label for="phone">Telefon kontaktowy</label><br>
-        <input type="text" id="phone" placeholder="Wpisz swój numer kontaktowy" th:field="*{phone}">
-        <span class="error-style" th:errors="*{phone}"></span> <br>
-        <button class="btn btn-dark btn-lg btn-outline-dark btn-block">Wyslij</button>
-    </form>
+            <p><label for="sex">Płeć</label><br>
+                <select id="sex" th:field="*{sex}">
+                    <option value="" th:text="wybierz"></option>
+                    <option th:each="s : ${sex}" th:value="${s}"
+                            th:text="${s.plName}"></option>
+                </select>
+                <span class="error-style" th:errors="*{sex}"></span> <br>
+
+            <p><label for="email">Adres e-mail</label><br>
+                <input type="text" id="email" placeholder="Podaj swój adres email" th:field="*{username}">
+                <span class="error-style" th:errors="*{username}"></span> <br>
+
+            <p><label for="password">Hasło</label><br>
+                <input type="text" id="password" placeholder="Podaj hasło" th:field="*{password}">
+                <span class="error-style" th:errors="*{password}"></span> <br>
+
+            <p><label for="phone">Telefon kontaktowy</label><br>
+                <input type="text" id="phone" placeholder="Wpisz swój numer kontaktowy" th:field="*{phone}">
+                <span class="error-style" th:errors="*{phone}"></span> <br>
+                <button class="btn btn-dark btn-lg btn-outline-dark btn-block">Wyslij</button>
+        </form>
+    </div>
 </div>
+
 </body>
 </html>
