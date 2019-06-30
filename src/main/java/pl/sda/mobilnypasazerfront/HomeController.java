@@ -3,6 +3,7 @@ package pl.sda.mobilnypasazerfront;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
@@ -15,5 +16,9 @@ class HomeController {
     String index(Model model) {
         model.addAttribute("now", LocalDateTime.now());
         return "home2";
+    }
+    @RequestMapping("/login")
+    public String showLoginPage(){
+        return "loginForm";
     }
 }
