@@ -2,13 +2,12 @@ package pl.sda.mobilnypasazerfront.passenger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import javax.validation.Valid;
 import java.util.ArrayList;
 
 @Controller
@@ -21,6 +20,9 @@ public class PassengerController {
         this.passengerService = passengerService;
     }
 
+    @Autowired
+    private PassengerRegistrationService passengerRegistrationService;
+
     @GetMapping("/new-form")
     String registerTicket (Model model) {
         model.addAttribute( "ticket", new PassengerTicket() );
@@ -28,14 +30,11 @@ public class PassengerController {
     }
 
     @PostMapping(value="/new-ticket")
-    public String saveTicket(@ModelAttribute(name = "ticket") PassengerTicket ticket, Model model){
+    public String saveTicket(@ModelAttribute(name = "ticket") PassengerTicketDTO ticket, Model model){
 
-        passengerService.save(ticket);
-        model.addAttribute( "ticketList", passengerService.getTicketList() );
+        passengerService.registerTicket(ticket);
+        model.addAttribute( "ticketList", passengerService.getTicketList());
         return "ticketList";
-
-        //return "index";
-
     }
 
     @GetMapping("/get-list")
@@ -56,10 +55,27 @@ public class PassengerController {
         model.addAttribute( "lista", listaDowyswieltnia );
         return "orderList";
     }
+    @GetMapping(value = "/users/index")
+    public String showUserIndex() {
+        return "userIndex";
+    }
 
+    @GetMapping(value = "/register")
+    public String showForm(Model model){
+        PassengerRegistrationDTO passengerRegistrationDTO = new PassengerRegistrationDTO();
+        model.addAttribute("passengerDto", passengerRegistrationDTO);
+        model.addAttribute("sex", Sex.values());
+        return "registerForm";
+    }
 
-
-
-
-
+    @PostMapping(value="/register")
+    public String register(@ModelAttribute(name = "passengerDto") @Valid PassengerRegistrationDTO passengerDto,
+                           BindingResult result, Model model){
+        if(result.hasErrors()){
+            model.addAttribute("sex", Sex.values());
+            return "registerForm";
+        }
+        passengerRegistrationService.registerUser(passengerDto);
+        return "index";
+    }
 }
