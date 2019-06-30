@@ -8,7 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import javax.validation.Valid;
 import java.util.ArrayList;
 
 @Controller
@@ -20,6 +20,9 @@ public class PassengerController {
     public PassengerController(PassengerService passengerService) {
         this.passengerService = passengerService;
     }
+
+    @Autowired
+    private PassengerRegistrationService passengerRegistrationService;
 
     @GetMapping("/new-form")
     String registerTicket (Model model) {
@@ -33,9 +36,6 @@ public class PassengerController {
         passengerService.save(ticket);
         model.addAttribute( "ticketList", passengerService.getTicketList() );
         return "ticketList";
-
-        return "index";
-
     }
 
     @GetMapping("/get-list")
@@ -56,10 +56,27 @@ public class PassengerController {
         model.addAttribute( "lista", listaDowyswieltnia );
         return "orderList";
     }
+    @GetMapping(value = "/users/index")
+    public String showUserIndex() {
+        return "userIndex";
+    }
 
+    @GetMapping(value = "/register")
+    public String showForm(Model model){
+        PassengerRegistrationDTO passengerRegistrationDTO = new PassengerRegistrationDTO();
+        model.addAttribute("passengerDto", passengerRegistrationDTO);
+        model.addAttribute("sex", Sex.values());
+        return "registerForm";
+    }
 
-
-
-
-
+    @PostMapping(value="/register")
+    public String register(@ModelAttribute(name = "passengerDto") @Valid PassengerRegistrationDTO passengerDto,
+                           BindingResult result, Model model){
+        if(result.hasErrors()){
+            model.addAttribute("sex", Sex.values());
+            return "registerForm";
+        }
+        passengerRegistrationService.registerUser(passengerDto);
+        return "index";
+    }
 }

@@ -8,8 +8,18 @@
 </div>
 <div th:fragment="userheader-fragment">
     <div class="usenav">
+        <a href="/users/index">Strona główna</a>
         <a href="/new-form">Formularz zgłoszenia przejazdu</a>
         <a href="/">Historia zgłoszeń</a>
         <a href="/" style="float: right">Wyloguj</a>
+        <p style="color: black; float: right" th:if="${@passengerContext.isLoggedIn()}"
+           th:text="${@passengerContext.provideUsername()}">User</p>
+    </div>
+</div>
+<div th:fragment="header-fragment">
+    <div class="usenav">
+        <a href="/">Strona główna</a>
+        <a href="/login">Logowanie</a>
+        <a href="/register">Rejestracja</a>
     </div>
 </div>
