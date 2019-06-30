@@ -9,11 +9,7 @@ create table if not exists passengers
 	phone varchar(255),
 	sex integer,
 	username varchar(255)
-)
-;
-
-alter table passengers owner to yjtcnehnbqfhdo
-;
+);
 
 create table if not exists roles
 (
@@ -22,9 +18,6 @@ create table if not exists roles
 			primary key,
 	role_name varchar(255)
 )
-;
-
-alter table roles owner to yjtcnehnbqfhdo
 ;
 
 create table if not exists passengers_roles
@@ -40,11 +33,5 @@ create table if not exists passengers_roles
 )
 ;
 
-alter table passengers_roles owner to yjtcnehnbqfhdo
-;
-
 create sequence hibernate_sequence
-;
-
-alter sequence hibernate_sequence owner to yjtcnehnbqfhdo
 ;
