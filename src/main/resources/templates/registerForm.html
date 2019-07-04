@@ -19,7 +19,7 @@
     <!-- End page content -->
     <div class="form-style" style="border-radius: 5px; background-color: #f2f2f2; padding: 20px">
         <h2>Formularz rejestracji pasażera</h2>
-        <form method="post" action="/register" th:object="${passengerDto}">
+        <form method="post" action="/users/register" th:object="${passengerDto}">
 
             <p><label for="firstName">Imię</label><br>
                 <input type="text" id="firstName" placeholder="Podaj swoje imię" th:field="*{firstName}">
