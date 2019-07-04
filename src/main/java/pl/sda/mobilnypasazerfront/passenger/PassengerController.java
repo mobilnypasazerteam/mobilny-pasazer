@@ -43,7 +43,7 @@ public class PassengerController {
             return "registerForm";
         }
         passengerRegistrationService.registerUser(passengerDto);
-        return "index";
+        return "home2";
     }
 
     @GetMapping(value = "/new-form")
