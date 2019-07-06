@@ -49,6 +49,7 @@ public class PassengerController {
     public String showTicketForm(Model model){
         PassengerTicketDTO passengerTicketDTO = new PassengerTicketDTO();
         model.addAttribute("passengerTicketDTO", passengerTicketDTO);
+        model.addAttribute("mobilityTypes", ReducedMobilityType.values());
         return "passengerForm";
     }
 
@@ -66,6 +67,7 @@ public class PassengerController {
     @GetMapping("/users/tickets")
     public String lista (Model model) {
         model.addAttribute( "ticketList", passengerService.getTicketList() );
+        model.addAttribute("mobilityTypes", ReducedMobilityType.values());
         return "ticketList";
     }
     @GetMapping("/users/elevators")
