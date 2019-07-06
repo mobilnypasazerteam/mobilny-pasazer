@@ -24,7 +24,6 @@ public class PassengerService {
     private PassengerTicket dtoToEntity(PassengerTicketDTO dto) {
 
         return PassengerTicket.builder()
-                .id( dto.getId())
                 .phone( dto.getPhone() )
                 .email( dto.getEmail() )
                 .travelDate( dto.getTravelDate() )
