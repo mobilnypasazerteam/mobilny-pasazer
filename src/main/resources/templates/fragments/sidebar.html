@@ -18,6 +18,7 @@
             <a th:if="!${@passengerContext.isLoggedIn()}" class="w3-bar-item w3-button w3-padding w3-text-teal" href="/login">Logowanie</a>
             <a th:if="${@passengerContext.isLoggedIn()}" class="w3-bar-item w3-button w3-padding w3-text-teal" >Punktualność pociągów</a>
             <a th:if="${@passengerContext.isLoggedIn()}" class="w3-bar-item w3-button w3-padding w3-text-teal" href="/users/new-form">Zgłoś przejazd</a>
+            <a th:if="${@passengerContext.isLoggedIn()}" class="w3-bar-item w3-button w3-padding w3-text-teal" href="/users/elevators">Awarie wind</a>
             <a th:if="${@passengerContext.isLoggedIn()}" class="w3-bar-item w3-button w3-padding w3-text-teal" >Dostępność stacji/przystanku</a>
             <a th:if="${@passengerContext.isLoggedIn()}" class="w3-bar-item w3-button w3-padding w3-text-teal" >Masz uwagi?</a>
             <a th:if="!${@passengerContext.isLoggedIn()}" class="w3-bar-item w3-button w3-padding w3-text-teal" >Kontakt</a>
