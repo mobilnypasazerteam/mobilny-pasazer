@@ -16,11 +16,13 @@ public class PassengerController {
 
     private final PassengerRegistrationService passengerRegistrationService;
     private final PassengerService passengerService;
+    private final PassengerTicketElevatorService passengerTicketElevatorService;
 
     @Autowired
-    public PassengerController(PassengerRegistrationService passengerRegistrationService, PassengerService passengerService) {
+    public PassengerController(PassengerRegistrationService passengerRegistrationService, PassengerService passengerService, PassengerTicketElevatorService passengerTicketElevatorService) {
         this.passengerRegistrationService = passengerRegistrationService;
         this.passengerService = passengerService;
+        this.passengerTicketElevatorService = passengerTicketElevatorService;
     }
 
     @GetMapping(value = "/register")
@@ -67,6 +69,11 @@ public class PassengerController {
         model.addAttribute( "ticketList", passengerService.getTicketList() );
         model.addAttribute("mobilityTypes", ReducedMobilityType.values());
         return "ticketList";
+    }
+    @GetMapping("/users/elevators")
+    public String showRottenElevators (Model model) {
+        model.addAttribute( "elevatortickets", passengerTicketElevatorService.ticketList());
+        return "elevatorMalfunction";
     }
 
 }
