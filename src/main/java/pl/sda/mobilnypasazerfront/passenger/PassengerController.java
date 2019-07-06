@@ -50,7 +50,6 @@ public class PassengerController {
     public String showTicketForm(Model model){
         PassengerTicketDTO passengerTicketDTO = new PassengerTicketDTO();
         model.addAttribute("passengerTicketDTO", passengerTicketDTO);
-     //   model.addAttribute("sex", Sex.values());
         return "passengerForm";
     }
 
