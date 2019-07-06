@@ -16,14 +16,15 @@
 
 
     <div class="alert alert-dismissable alert-success" th:if="${register != null}">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <a href="/login" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <p>Zarejestrowano poprawnie</p>
     </div>
 
     <form class="form-signin" action="/processLogin" method="post">
 
         <div class="alert alert-dismissable alert-danger bad-login" th:if="${param.error != null}">
-            <p>Invalid username or password.</p>
+            <a href="/login" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <p>Niepoprawny login lub hasło</p>
         </div>
 
         <h2 style="text-align: center">Zaloguj do konta</h2>

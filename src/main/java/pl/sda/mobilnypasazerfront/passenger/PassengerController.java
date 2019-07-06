@@ -39,7 +39,8 @@ public class PassengerController {
             return "registerForm";
         }
         passengerRegistrationService.registerUser(passengerDto);
-        return "home";
+        String redirectUrl = "login?register=true";
+        return "redirect:" + redirectUrl;
     }
 
     @GetMapping(value = "/users/new-form")
