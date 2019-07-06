@@ -1,4 +1,4 @@
-package pl.sda.mobilnypasazerfront.roles;
+package pl.sda.mobilnypasazerfront.role;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
