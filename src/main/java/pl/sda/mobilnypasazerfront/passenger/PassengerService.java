@@ -2,23 +2,23 @@ package pl.sda.mobilnypasazerfront.passenger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sun.security.krb5.internal.Ticket;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class PassengerService {
 
-    private List<PassengerTicket> TICKETS;
+    private final PassengerTicketRepository passengerTicketRepository;
 
     @Autowired
-    private TicketRepository ticketRepository;
-    
+    public PassengerService(PassengerTicketRepository passengerTicketRepository) {
+        this.passengerTicketRepository = passengerTicketRepository;
+    }
+
     public void registerTicket(PassengerTicketDTO dto) {
         PassengerTicket passengerTicket = dtoToEntity(dto);
-        ticketRepository.save(passengerTicket);
+        passengerTicketRepository.save(passengerTicket);
         }
 
     private PassengerTicket dtoToEntity(PassengerTicketDTO dto) {
@@ -27,22 +27,22 @@ public class PassengerService {
                 .id( dto.getId())
                 .phone( dto.getPhone() )
                 .email( dto.getEmail() )
-                .travel_date( dto.getTravel_date() )
-                .start_point( dto.getStart_point() )
-                .start_time( dto.getStart_time() )
-                .intermediate_point( dto.getIntermediate_point() )
-                .end_point( dto.getEnd_point() )
-                .end_time( dto.getEnd_time() )
-                .passenger_no( dto.getPassenger_no() )
-                .reduced_mobility_type( dto.getReduced_mobility_type() )
-                .additional_info( dto.getAdditional_info() )
+                .travelDate( dto.getTravelDate() )
+                .startPoint( dto.getStartPoint() )
+                .startTime( dto.getStartTime() )
+                .intermediatePoint( dto.getIntermediatePoint() )
+                .endPoint( dto.getEndPoint() )
+                .endTime( dto.getEndTime() )
+                .passengerNo( dto.getPassengerNo() )
+                .reducedMobilityType( dto.getReducedMobilityType() )
+                .additionalInfo( dto.getAdditionalInfo() )
                 .build();
 
     }
 
     public List<PassengerTicketDTO> getTicketList() {
 
-        List<PassengerTicket> all = ticketRepository.findAll();
+        List<PassengerTicket> all = passengerTicketRepository.findAll();
 
         return entityToDTO( all );
     }
@@ -53,15 +53,15 @@ public class PassengerService {
             passengerTicketDTO.add(PassengerTicketDTO.builder()
                     .phone( ticket.getPhone() )
                     .email( ticket.getEmail() )
-                    .travel_date( ticket.getTravel_date() )
-                    .start_point( ticket.getStart_point() )
-                    .start_time( ticket.getStart_time() )
-                    .intermediate_point( ticket.getIntermediate_point() )
-                    .end_point( ticket.getEnd_point() )
-                    .end_time( ticket.getEnd_time() )
-                    .passenger_no( ticket.getPassenger_no() )
-                    .reduced_mobility_type( ticket.getReduced_mobility_type() )
-                    .additional_info( ticket.getAdditional_info() )
+                    .travelDate( ticket.getTravelDate() )
+                    .startPoint( ticket.getStartPoint() )
+                    .startTime( ticket.getStartTime() )
+                    .intermediatePoint( ticket.getIntermediatePoint() )
+                    .endPoint( ticket.getEndPoint() )
+                    .endTime( ticket.getEndTime() )
+                    .passengerNo( ticket.getPassengerNo() )
+                    .reducedMobilityType( ticket.getReducedMobilityType() )
+                    .additionalInfo( ticket.getAdditionalInfo() )
                     .build());
         }
         return passengerTicketDTO;
