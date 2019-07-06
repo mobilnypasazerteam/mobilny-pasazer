@@ -19,9 +19,6 @@ public class PassengerController {
     @Autowired
     private PassengerService passengerService;
 
-
-
-
     @GetMapping(value = "/users/index")
     public String showUserIndex() {
         return "userIndex";
@@ -43,7 +40,7 @@ public class PassengerController {
             return "registerForm";
         }
         passengerRegistrationService.registerUser(passengerDto);
-        return "index";
+        return "redirect:login";
     }
 
     @GetMapping(value = "/new-form")
