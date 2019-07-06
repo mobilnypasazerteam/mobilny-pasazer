@@ -32,30 +32,30 @@
         <h3>Informacje dotyczące podróży, w trakcie której pożądana jest pomoc</h3>
 
         <p><label for="travel_date">Dzień przejazdu:</label>
-            <input type="date" id="travel_date" name="dzień przejazdu" required th:field="*{travel_date}">
-            <span class="error-style" th:errors="*{travel_date}"></span></p>
+            <input type="date" id="travel_date" name="dzień przejazdu" required th:field="*{travelDate}">
+            <span class="error-style" th:errors="*{travelDate}"></span></p>
         <p><label for="start_point">Stacja początkowa podróży:</label>
-            <input type="text" id="start_point" name="start_point" placeholder="Wpisz stację początkową podróży" required th:field="*{start_point}">
-            <span class="error-style" th:errors="*{start_point}"></span></p>
+            <input type="text" id="start_point" name="start_point" placeholder="Wpisz stację początkową podróży" required th:field="*{startPoint}">
+            <span class="error-style" th:errors="*{startPoint}"></span></p>
         <p><label for="start_time">Godzina odjazdu:</label>
-            <input type="time" id="start_time" name="godzina odjazdu" required th:field="*{start_time}">
-            <span class="error-style" th:errors="*{start_time}"></span></p>
+            <input type="time" id="start_time" name="godzina odjazdu" required th:field="*{startTime}">
+            <span class="error-style" th:errors="*{startTime}"></span></p>
         <p><label for="intermediate_point">Stacja przesiadkowa:</label>
-            <input type="text" id="intermediate_point" name="intermediate_point" placeholder="Jeśli się przesiadasz, wpisz stację przesiadkową podróży"th:field="*{intermediate_point}">
+            <input type="text" id="intermediate_point" name="intermediate_point" placeholder="Jeśli się przesiadasz, wpisz stację przesiadkową podróży"th:field="*{intermediatePoint}">
         <p><label for="end_point">Stacja końcowa podróży:</label>
-            <input type="text" id="end_point" name="end_point" placeholder="Wpisz stację końcową podróży" required th:field="*{end_point}">
-            <span class="error-style" th:errors="*{end_point}"></span></p>
+            <input type="text" id="end_point" name="end_point" placeholder="Wpisz stację końcową podróży" required th:field="*{endPoint}">
+            <span class="error-style" th:errors="*{endPoint}"></span></p>
         <p><label for="end_time">Godzina przyjazdu:</label>
-            <input type="time" id="end_time" name="godzina przyjazdu" required th:field="*{end_time}">
-            <span class="error-style" th:errors="*{end_time}"></span></p>
+            <input type="time" id="end_time" name="godzina przyjazdu" required th:field="*{endTime}">
+            <span class="error-style" th:errors="*{endTime}"></span></p>
 
         <h3>Informacje dotyczące osób wymagających naszego wsparcia</h3>
 
         <p><label for="passenger_no">Liczba osób, które potrzebują wsparcia w podróży:</label>
-            <input type="number" id="passenger_no" name="passenger_no" placeholder="Wpisz liczbę" required th:field="*{passenger_no}">
-            <span class="error-style" th:errors="*{passenger_no}"></span></p>
+            <input type="number" id="passenger_no" name="passenger_no" placeholder="Wpisz liczbę" required th:field="*{passengerNo}">
+            <span class="error-style" th:errors="*{passengerNo}"></span></p>
         <label for="reduced_mobility_type">Ograniczenie w poruszaniu się:</label>
-        <select id="reduced_mobility_type" name="reduced_mobility_type" th:field="*{reduced_mobility_type}">
+        <select id="reduced_mobility_type" name="reduced_mobility_type" th:field="*{reducedMobilityType}">
             <option value="wheel_chair">Osoba na wózku ręcznym</option>
             <option value="electric_wheelchair">Osoba na wózku elektrycznym</option>
             <option value="blind_person">Osoba niewidoma</option>
@@ -66,7 +66,7 @@
             <option value="other">Inne</option>
         </select>
         <p><label for="additional_info">Dodatkowe informacje dotyczące ograniczenia w poruszaniu się</label>
-            <input type="text" id="additional_info" name="additional_info" placeholder="Wypełnij, jeśli chcesz uzupełnić dane dotyczące ograniczenia w poruszaniu się" th:field="*{additional_info}"></p>
+            <input type="text" id="additional_info" name="additional_info" placeholder="Wypełnij, jeśli chcesz uzupełnić dane dotyczące ograniczenia w poruszaniu się" th:field="*{additionalInfo}"></p>
 
         <input type="submit" value="Wyślij zgłoszenie">
 

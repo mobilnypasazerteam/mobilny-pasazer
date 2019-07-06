@@ -25,18 +25,18 @@ public class PassengerTicket {
     @NotNull
     private String email;
     @NotNull
-    private String travel_date;
+    private String travelDate;
     @NotNull
-    private String start_point;
+    private String startPoint;
     @NotNull
-    private String start_time;
-    private String intermediate_point;
+    private String startTime;
+    private String intermediatePoint;
     @NotNull
-    private String end_point;
+    private String endPoint;
     @NotNull
-    private String end_time;
+    private String endTime;
     @NotNull
-    private Integer passenger_no;
-    private String reduced_mobility_type;
-    private String additional_info;
+    private Integer passengerNo;
+    private String reducedMobilityType;
+    private String additionalInfo;
    }

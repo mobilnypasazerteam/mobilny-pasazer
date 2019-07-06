@@ -2,7 +2,7 @@ package pl.sda.mobilnypasazerfront.passenger;
 
 import lombok.*;
 import pl.sda.mobilnypasazerfront.BaseEntity;
-import pl.sda.mobilnypasazerfront.roles.Role;
+import pl.sda.mobilnypasazerfront.role.Role;
 
 import javax.persistence.*;
 import java.util.HashSet;

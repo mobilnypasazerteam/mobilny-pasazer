@@ -25,19 +25,19 @@ public class PassengerTicketDTO {
     @NotNull(message = "Pole nie może być puste")
     private String email;
     @NotNull(message = "Pole nie może być puste")
-    private String travel_date;
+    private String travelDate;
     @NotNull(message = "Pole nie może być puste")
-    private String start_point;
+    private String startPoint;
     @NotNull(message = "Pole nie może być puste")
-    private String start_time;
-    private String intermediate_point;
+    private String startTime;
+    private String intermediatePoint;
     @NotNull(message = "Pole nie może być puste")
-    private String end_point;
+    private String endPoint;
     @NotNull(message = "Pole nie może być puste")
-    private String end_time;
+    private String endTime;
     @NotNull(message = "Pole nie może być puste")
-    private Integer passenger_no;
-    private String reduced_mobility_type;
-    private String additional_info;
+    private Integer passengerNo;
+    private String reducedMobilityType;
+    private String additionalInfo;
 
 }

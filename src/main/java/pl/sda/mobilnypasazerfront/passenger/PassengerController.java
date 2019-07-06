@@ -8,26 +8,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
-import java.util.ArrayList;
 
 @Controller
 public class PassengerController {
 
-    @Autowired
-    private PassengerRegistrationService passengerRegistrationService;
+    private static final String PASSENGER_DTO = "passengerDto";
+
+    private final PassengerRegistrationService passengerRegistrationService;
+    private final PassengerService passengerService;
 
     @Autowired
-    private PassengerService passengerService;
-
-    @GetMapping(value = "/users/index")
-    public String showUserIndex() {
-        return "home2";
+    public PassengerController(PassengerRegistrationService passengerRegistrationService, PassengerService passengerService) {
+        this.passengerRegistrationService = passengerRegistrationService;
+        this.passengerService = passengerService;
     }
 
     @GetMapping(value = "/register")
     public String showForm(Model model){
         PassengerRegistrationDTO passengerRegistrationDTO = new PassengerRegistrationDTO();
-        model.addAttribute("passengerDto", passengerRegistrationDTO);
+        model.addAttribute(PASSENGER_DTO, passengerRegistrationDTO);
         model.addAttribute("sex", Sex.values());
         return "registerForm";
     }
@@ -40,7 +39,7 @@ public class PassengerController {
             return "registerForm";
         }
         passengerRegistrationService.registerUser(passengerDto);
-        return "redirect:login";
+        return "home";
     }
 
     @GetMapping(value = "/users/new-form")

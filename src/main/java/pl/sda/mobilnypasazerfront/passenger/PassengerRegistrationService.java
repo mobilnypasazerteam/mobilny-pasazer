@@ -4,24 +4,25 @@ package pl.sda.mobilnypasazerfront.passenger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import pl.sda.mobilnypasazerfront.roles.Role;
-import pl.sda.mobilnypasazerfront.roles.RoleRepository;
+import pl.sda.mobilnypasazerfront.role.Role;
+import pl.sda.mobilnypasazerfront.role.RoleRepository;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
 @Service
 public class PassengerRegistrationService {
 
-    @Autowired
-    private PasswordEncoder encoder;
+    private final PasswordEncoder encoder;
+    private final PassengerRepository passengerRepository;
+    private final RoleRepository roleRepository;
 
     @Autowired
-    private PassengerRepository passengerRepository;
-
-    @Autowired
-    private RoleRepository roleRepository;
+    public PassengerRegistrationService(PasswordEncoder encoder, PassengerRepository passengerRepository, RoleRepository roleRepository) {
+        this.encoder = encoder;
+        this.passengerRepository = passengerRepository;
+        this.roleRepository = roleRepository;
+    }
 
     public void registerUser(PassengerRegistrationDTO dto) {
         Passenger passenger = dtoToEntity(dto);
