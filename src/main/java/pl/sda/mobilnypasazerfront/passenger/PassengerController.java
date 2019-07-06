@@ -21,7 +21,7 @@ public class PassengerController {
 
     @GetMapping(value = "/users/index")
     public String showUserIndex() {
-        return "userIndex";
+        return "home2";
     }
 
     @GetMapping(value = "/register")
@@ -43,15 +43,14 @@ public class PassengerController {
         return "redirect:login";
     }
 
-    @GetMapping(value = "/new-form")
+    @GetMapping(value = "/users/new-form")
     public String showTicketForm(Model model){
         PassengerTicketDTO passengerTicketDTO = new PassengerTicketDTO();
         model.addAttribute("passengerTicketDTO", passengerTicketDTO);
-     //   model.addAttribute("sex", Sex.values());
         return "passengerForm";
     }
 
-    @PostMapping(value="/new-ticket")
+    @PostMapping(value="/users/new-ticket")
     public String saveTicket (@ModelAttribute(name = "passengerTicketDTO") @Valid PassengerTicketDTO passengerTicketDTO,
                            BindingResult result, Model model){
         if(result.hasErrors()){
@@ -62,7 +61,7 @@ public class PassengerController {
         return "ticketList";
     }
 
-    @GetMapping("/tickets")
+    @GetMapping("/users/tickets")
     public String lista (Model model) {
         model.addAttribute( "ticketList", passengerService.getTicketList() );
         return "ticketList";

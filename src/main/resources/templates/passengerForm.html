@@ -14,9 +14,9 @@
 <div class="w3-overlay w3-hide-large w3-animate-opacity" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 <header th:replace="fragments/header.html :: menuHeader" />
 <div class="w3-main" style="margin-left:300px">
-    <div style="border-radius: 5px; background-color: #f2f2f2; padding: 20px">
+    <div class="form-style" style="border-radius: 5px; background-color: #f2f2f2; padding: 20px">
 
-    <form method="post" action="/new-ticket" th:object="${passengerTicketDTO}">
+    <form method="post" action="/users/new-ticket" th:object="${passengerTicketDTO}">
 
         <h3>Informacje kontaktowe:</h3>
 

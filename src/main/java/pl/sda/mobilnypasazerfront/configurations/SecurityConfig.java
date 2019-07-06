@@ -22,8 +22,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/").permitAll() //kolejność jest ważna - elementy wyższe nadpisują niższe
                 .antMatchers("/register").permitAll() //kolejność jest ważna - elementy wyższe nadpisują niższe
                 .antMatchers("/login").permitAll()
+                .antMatchers("/home").permitAll()
                 .antMatchers("/profile").permitAll()
                 .antMatchers("/css/**").permitAll() //odblokowujemy dostęp do zasobow statycznych
                 .antMatchers("/api/**").permitAll() //odblokowujemy dostęp do zasobow statycznych
@@ -54,4 +56,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                 "WHERE p.username = ? ")
                 .passwordEncoder(passwordEncoder)
                 .dataSource(dataSource);
-    }}
+    }
+}

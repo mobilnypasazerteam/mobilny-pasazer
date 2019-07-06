@@ -37,13 +37,6 @@
             <th>Dodatkowe informacje</th>
         </tr>
         <tr th:each="ticket : ${passengerTicketDTO}" ></tr>
-            <!--th:id="*{'row_'+ticket.id}"> &lt;!&ndash;dynamiczne nadawanie id &ndash;&gt;-->
-            <!--<td>-->
-                <!--&lt;!&ndash;            <a th:href="@{/admin/product/}+*{product.id}">&ndash;&gt;-->
-                <!--<a th:href="@{/admin/product/{id}(id=${product.id})}">-->
-                    <!--&lt;!&ndash;@ pozwala na zachowanie kontekstu aplikacji + powinnismy jej uzywac przy adresach&ndash;&gt;-->
-                    <!--<span th:text="*{product.productName}"></span>-->
-                <!--</a>-->
             <td th:text="*{passengerTicketDTO.phone}"></td>
             <td th:text="*{passengerTicketDTO.email}"></td>
             <td th:text="*{passengerTicketDTO.travel_date}"></td>
@@ -59,5 +52,6 @@
 
     </table>
     </div>
+</div>
 </body>
 </html>
