@@ -19,7 +19,7 @@ public class PassengerTicketElevatorService {
 
 
     public List<PassengerElevator> ticketList() {
-        PassengerElevator[] elev = restTemplate.getForObject("http://localhost:8080/api/elevators-malfunction-list", PassengerElevator[].class);
+        PassengerElevator[] elev = restTemplate.getForObject("https://mobilny-pasazer.herokuapp.com/api/elevators-malfunction-list", PassengerElevator[].class);
         List<PassengerElevator> passengerElevators = Arrays.asList(elev);
 
         for (PassengerElevator passengerElevator : passengerElevators) {
