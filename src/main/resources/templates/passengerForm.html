@@ -55,15 +55,8 @@
             <input type="number" id="passenger_no" name="passenger_no" placeholder="Wpisz liczbę" required th:field="*{passengerNo}">
             <span class="error-style" th:errors="*{passengerNo}"></span></p>
         <label for="reduced_mobility_type">Ograniczenie w poruszaniu się:</label>
-        <select id="reduced_mobility_type" name="reduced_mobility_type" th:field="*{reducedMobilityType}">
-            <option value="wheel_chair">Osoba na wózku ręcznym</option>
-            <option value="electric_wheelchair">Osoba na wózku elektrycznym</option>
-            <option value="blind_person">Osoba niewidoma</option>
-            <option value="deaf_person">Osoba głucha</option>
-            <option value="person_with_crutches">Osoba o kulach</option>
-            <option value="elder_person">Osoba starsza</option>
-            <option value="small_child">Osoba z dzieckiem w wózku/ z małym dzieckiem do lat 4</option>
-            <option value="other">Inne</option>
+        <select id="reduced_mobility_type" name="reduced_mobility_type" th:field="*{mobilityType}">
+            <option th:each="reducedMobilityType : ${mobilityTypes}" th:value="${reducedMobilityType}" th:label="${reducedMobilityType.label}"></option>
         </select>
         <p><label for="additional_info">Dodatkowe informacje dotyczące ograniczenia w poruszaniu się</label>
             <input type="text" id="additional_info" name="additional_info" placeholder="Wypełnij, jeśli chcesz uzupełnić dane dotyczące ograniczenia w poruszaniu się" th:field="*{additionalInfo}"></p>

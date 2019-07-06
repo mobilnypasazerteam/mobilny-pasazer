@@ -34,7 +34,7 @@ public class PassengerService {
                 .endPoint( dto.getEndPoint() )
                 .endTime( dto.getEndTime() )
                 .passengerNo( dto.getPassengerNo() )
-                .reducedMobilityType( dto.getReducedMobilityType() )
+                .mobilityType( dto.getMobilityType())
                 .additionalInfo( dto.getAdditionalInfo() )
                 .build();
 
@@ -60,7 +60,7 @@ public class PassengerService {
                     .endPoint( ticket.getEndPoint() )
                     .endTime( ticket.getEndTime() )
                     .passengerNo( ticket.getPassengerNo() )
-                    .reducedMobilityType( ticket.getReducedMobilityType() )
+                    .mobilityType( ticket.getMobilityType() )
                     .additionalInfo( ticket.getAdditionalInfo() )
                     .build());
         }

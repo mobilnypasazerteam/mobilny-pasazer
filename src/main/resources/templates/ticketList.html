@@ -39,15 +39,15 @@
         <tr th:each="ticket : ${passengerTicketDTO}" ></tr>
             <td th:text="*{passengerTicketDTO.phone}"></td>
             <td th:text="*{passengerTicketDTO.email}"></td>
-            <td th:text="*{passengerTicketDTO.getTravelDate}"></td>
-            <td th:text="*{passengerTicketDTO.getStartPoint}"></td>
+            <td th:text="*{passengerTicketDTO.travelDate}"></td>
+            <td th:text="*{passengerTicketDTO.startPoint}"></td>
             <td th:text="*{passengerTicketDTO.startTime}"></td>
-            <td th:text="*{passengerTicketDTO.getIntermediatePoint}"></td>
-            <td th:text="*{passengerTicketDTO.getEndPoint}"></td>
-            <td th:text="*{passengerTicketDTO.getEndTime}"></td>
-            <td th:text="*{passengerTicketDTO.getPassengerNo}"></td>
-            <td th:text="*{passengerTicketDTO.getReducedMobilityType}"></td>
-            <td th:text="*{passengerTicketDTO.getAdditionalInfo}"></td>
+            <td th:text="*{passengerTicketDTO.intermediatePoint}"></td>
+            <td th:text="*{passengerTicketDTO.endPoint}"></td>
+            <td th:text="*{passengerTicketDTO.endTime}"></td>
+            <td th:text="*{passengerTicketDTO.passengerNo}"></td>
+            <td th:text="*{passengerTicketDTO.mobilityType.label}"></td>
+            <td th:text="*{passengerTicketDTO.additionalInfo}"></td>
         </tr>
 
     </table>

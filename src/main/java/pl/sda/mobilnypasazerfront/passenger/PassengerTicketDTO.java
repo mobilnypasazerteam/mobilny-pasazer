@@ -37,7 +37,7 @@ public class PassengerTicketDTO {
     private String endTime;
     @NotNull(message = "Pole nie może być puste")
     private Integer passengerNo;
-    private String reducedMobilityType;
+    private ReducedMobilityType mobilityType;
     private String additionalInfo;
 
 }
