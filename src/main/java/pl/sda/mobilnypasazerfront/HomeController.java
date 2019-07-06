@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
@@ -17,7 +18,9 @@ class HomeController {
         return "home";
     }
     @RequestMapping("/login")
-    public String showLoginPage(){
+    public String showLoginPage(@RequestParam(required = false) String register,
+                                Model model) {
+        model.addAttribute("register", register);
         return "loginForm";
     }
 }

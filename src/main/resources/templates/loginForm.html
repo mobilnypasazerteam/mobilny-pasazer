@@ -13,11 +13,24 @@
 
 <div class="w3-overlay w3-hide-large w3-animate-opacity"  style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px">
-    <form class="form-signin" action="/processLogin" method="post">
-        <input class="form-control" type="text" name="loginEmail" placeholder="Login/email"><br>
-        <input  class="form-control" type="text" name="loginPassword" placeholder="Hasło"><br>
-        <button class="btn btn-dark btn-lg btn-outline-dark btn-block">Loguj</button>
 
+
+    <div class="alert alert-dismissable alert-success" th:if="${register != null}">
+        <a href="/login" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <p>Zarejestrowano poprawnie</p>
+    </div>
+
+    <form class="form-signin" action="/processLogin" method="post">
+
+        <div class="alert alert-dismissable alert-danger bad-login" th:if="${param.error != null}">
+            <a href="/login" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <p>Niepoprawny login lub hasło</p>
+        </div>
+
+        <h2 style="text-align: center">Zaloguj do konta</h2>
+        <input class="form-control" type="text" name="loginEmail" placeholder="Login/email"><br>
+        <input  class="form-control" type="password" name="loginPassword" placeholder="Hasło"><br>
+        <button class="btn btn-dark btn-lg btn-outline-dark btn-block">Loguj</button>
     </form>
 </div>
 </body>

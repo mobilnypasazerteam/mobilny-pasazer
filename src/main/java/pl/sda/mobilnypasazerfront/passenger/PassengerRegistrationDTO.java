@@ -21,6 +21,7 @@ public class PassengerRegistrationDTO {
     private String lastName;
     @NotNull(message = "Pole nie może być puste")
     private Sex sex;
+    @NotNull(message = "Pole nie może być puste")
     @Email(message = "Pole powinno zawierać poprawny adres email")
     private String username;
     @NotNull(message = "Pole nie może być puste")
